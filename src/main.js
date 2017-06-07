@@ -1,6 +1,7 @@
 import Vue from 'vue'
-import App from './App.vue'
 import VueRouter from 'vue-router'
+import App from './App.vue'
+import Loading from './components/loading'
 //导入路由配置
 import routes from './router/router'
 //导入Mint组件库
@@ -11,11 +12,12 @@ Vue.use(Mint);
 //使用路由
 Vue.use(VueRouter);
 //实例化路由
-const router = new VueRouter({routes});
+Vue.use(Loading);
+const router = new VueRouter(routes);
 
 new Vue({
   router,
-  el: '#app',
+  el:'#app',
   render: h => h(App)
 });
 
